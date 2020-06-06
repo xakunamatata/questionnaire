@@ -55,6 +55,9 @@ class QuestionnaireController extends Controller
      */
     public function show(Questionnaire $questionnaire)
     {
+    	// lazy loading
+		$questionnaire->load('questions.answers');
+
         return view('questionnaire.show', compact('questionnaire'));
     }
 
